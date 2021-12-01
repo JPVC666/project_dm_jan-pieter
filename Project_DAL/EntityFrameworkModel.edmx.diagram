@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bb800478ae38442cbb929e8b5179a641" Name="Diagram1">
+        <EntityTypeShape EntityType="VerenigingenModel.Categorie" Width="1.5" PointX="2.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VerenigingenModel.Contactpersoon" Width="1.5" PointX="12.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VerenigingenModel.Event" Width="1.5" PointX="12.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VerenigingenModel.Gebruiker" Width="1.5" PointX="2.375" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VerenigingenModel.GebruikerVereniging" Width="1.5" PointX="4.875" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VerenigingenModel.Vereniging" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="VerenigingenModel.VerenigingCategorie" Width="1.5" PointX="4.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VerenigingenModel.VerenigingContactpersoon" Width="1.5" PointX="10.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VerenigingenModel.VerenigingEvent" Width="1.5" PointX="10.25" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="VerenigingenModel.FK_VerenigingCategorie_categorieId" ManuallyRouted="false" />
+        <AssociationConnector Association="VerenigingenModel.FK_VerenigingContactpersoon_contactpersoonId" ManuallyRouted="false" />
+        <AssociationConnector Association="VerenigingenModel.FK_VerenigingEvent_eventId" ManuallyRouted="false" />
+        <AssociationConnector Association="VerenigingenModel.FK_GebruikerVereniging_gebruikerId" ManuallyRouted="false" />
+        <AssociationConnector Association="VerenigingenModel.FK_GebruikerVereniging_verenigingId" ManuallyRouted="false" />
+        <AssociationConnector Association="VerenigingenModel.FK_GebruikerCategorie_verenigingId" ManuallyRouted="false" />
+        <AssociationConnector Association="VerenigingenModel.FK_VerenigingContactpersoon_verenigingId" ManuallyRouted="false" />
+        <AssociationConnector Association="VerenigingenModel.FK_VerenigingEvent_verenigingId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

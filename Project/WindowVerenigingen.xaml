@@ -1,0 +1,43 @@
+﻿<Window x:Class="Project.WindowVerenigingen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="WindowVerenigingen" Height="450" Width="800">
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="txtZoekVereniging" Grid.Row="1" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Naam Vereniging"/>
+            <Button x:Name="btnZoekOpNaamVereniging" Content="Zoek Vereniging" Grid.Row="1" Grid.Column="1"  Margin="5" Click="btnZoekOpNaamVereniging_Click"/>
+            <TextBox x:Name="txtGemeente" Grid.Row="1" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Gemeente"/>
+            <Button x:Name="btnZoekOpGemeente" Content="Zoek Op Gemeente" Grid.Row="1" Grid.Column="3" Margin="5" Click="btnZoekOpGemeente_Click"/>
+            <TextBox x:Name="txtStraat" Grid.Row="2" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Straatnaam"/>
+            <Button x:Name="btnZoekViaStraat" Content="Zoek op Straat" Grid.Row="2" Grid.Column="1"  Margin="5" Click="btnZoekViaStraat_Click"/>
+            <TextBox x:Name="txtVerenigingId" Grid.Row="2" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="VerenigingID"/>
+            <Button x:Name="btnZoekOpVerenigingId" Content="Zoek Met ID" Grid.Row="2" Grid.Column="3"  Margin="5" Click="btnZoekOpVerenigingId_Click"/>
+        </Grid>
+        <DataGrid x:Name="datagridVerenigingen3" AutoGenerateColumns="True" Margin="5"/>
+    </DockPanel>
+</Window>

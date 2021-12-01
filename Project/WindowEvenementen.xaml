@@ -1,0 +1,42 @@
+﻿<Window x:Class="Project.WindowEvenementen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="WindowEvenementen" Height="450" Width="800">
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="txtZoekOpTitel" Grid.Row="0" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Titel"/>
+            <Button x:Name="btnZoekOpTitel" Content="Zoek op titel" Grid.Row="0" Grid.Column="1" Margin="5" Click="btnZoekOpTitel_Click"/>
+            <TextBox x:Name="txtDatum" Grid.Row="0" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Datum"/>
+            <Button x:Name="btnZoekOpDatum" Content="Zoek op Datum" Grid.Row="0" Grid.Column="3" Margin="5" Click="btnZoekOpDatum_Click"/>
+            <TextBox x:Name="txtZoekOpPostcode" Grid.Row="1" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Postcode"/>
+            <Button x:Name="btnOphalenViaWerknemerID" Content="Zoeken op Postcode" Grid.Row="1" Grid.Column="1" Margin="5" Click="btnOphalenViaWerknemerID_Click"/>
+            <TextBox x:Name="txtZoekOpPrijs" Grid.Row="1" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Prijs"/>
+            <Button x:Name="btnZoekOpPrijs" Content="Zoek op prijs" Grid.Row="1" Grid.Column="3" Margin="5" Click="btnZoekOpPrijs_Click"/>
+        </Grid>
+        <DataGrid x:Name="datagridVerenigingen1" AutoGenerateColumns="True" Margin="5"/>
+    </DockPanel>
+</Window>
