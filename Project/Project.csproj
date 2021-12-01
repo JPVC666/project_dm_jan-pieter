@@ -71,6 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WindowAlleDB.xaml.cs">
+      <DependentUpon>WindowAlleDB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowEvenementen.xaml.cs">
       <DependentUpon>WindowEvenementen.xaml</DependentUpon>
     </Compile>
@@ -92,6 +95,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WindowAlleDB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowEvenementen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,0 +1,40 @@
+﻿<Window x:Class="Project.WindowAlleDB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="WindowAlleDB" Height="450" Width="800">
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnDataVerenigingen" Content="Verenigingen" Grid.Row="0" Grid.Column="0" Margin="5" Click="btnDataVerenigingen_Click"/>
+            <Button x:Name="btnDataEvenementen" Content="Evenementen" Grid.Row="0" Grid.Column="1" Margin="5" Click="btnDataEvenementen_Click"/>
+            <Button x:Name="btnDataGebruikers" Content="Gebruikers" Grid.Row="0" Grid.Column="2" Margin="5" Click="btnDataGebruikers_Click"/>
+            <Button x:Name="btnDataCategorieën" Content="Categorieën" Grid.Row="0" Grid.Column="3" Margin="5" Click="btnDataCategorieën_Click"/>
+            <Button x:Name="btnDataZoekVerenigingen" Content="Zoek Verenigingen" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Click="btnDataZoekVerenigingen_Click"/>
+            <Button x:Name="btnDataZoekEvenementen" Content="Zoek Evenementen" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="5" Click="btnDataZoekEvenementen_Click"/>
+            <Button x:Name="btnDataZoekGebruikers" Content="Zoek Gebruikers" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Click="btnDataZoekGebruikers_Click"/>
+        </Grid>
+        <DataGrid x:Name="datagridVerenigingen" AutoGenerateColumns="True" Margin="5"/>
+    </DockPanel>
+</Window>
