@@ -24,12 +24,44 @@ namespace Project
         public MainWindow()
         {
             InitializeComponent();
-        }        
+        }
 
-        private void btnBekijkenDatabase_Click(object sender, RoutedEventArgs e)
+        private void btnDataVerenigingen_Click(object sender, RoutedEventArgs e)
         {
-            WindowAlleDB wadb = new WindowAlleDB();
-            wadb.Show();
+            datagridVerenigingen.ItemsSource = DatabaseOperations.OphalenVereniging();
+        }
+
+        private void btnDataEvenementen_Click(object sender, RoutedEventArgs e)
+        {
+            datagridVerenigingen.ItemsSource = DatabaseOperations.OphalenEvenementen();
+        }
+
+        private void btnDataGebruikers_Click(object sender, RoutedEventArgs e)
+        {
+            datagridVerenigingen.ItemsSource = DatabaseOperations.OphalenGebruikers();
+        }
+
+        private void btnDataCategorieën_Click(object sender, RoutedEventArgs e)
+        {
+            datagridVerenigingen.ItemsSource = DatabaseOperations.OphalenCategorie();
+        }
+
+        private void btnDataZoekVerenigingen_Click(object sender, RoutedEventArgs e)
+        {
+            WindowVerenigingen wv = new WindowVerenigingen();
+            wv.ShowDialog();
+        }
+
+        private void btnDataZoekEvenementen_Click(object sender, RoutedEventArgs e)
+        {
+            WindowEvenementen we = new WindowEvenementen();
+            we.ShowDialog();
+        }
+
+        private void btnDataZoekGebruikers_Click(object sender, RoutedEventArgs e)
+        {
+            WindowGebruikers wg = new WindowGebruikers();
+            wg.ShowDialog();
         }
     }
 }

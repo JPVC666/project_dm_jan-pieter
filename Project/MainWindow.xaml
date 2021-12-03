@@ -14,14 +14,27 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Button x:Name="btnBekijkenDatabase" Content="Bekijken Database" Grid.Column="0" Grid.Row="0" Margin="5" Click="btnBekijkenDatabase_Click"/>
-    </Grid>
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnDataVerenigingen" Content="Verenigingen" Grid.Row="0" Grid.Column="0" Margin="5" Click="btnDataVerenigingen_Click"/>
+            <Button x:Name="btnDataEvenementen" Content="Evenementen" Grid.Row="0" Grid.Column="1" Margin="5" Click="btnDataEvenementen_Click"/>
+            <Button x:Name="btnDataGebruikers" Content="Gebruikers" Grid.Row="0" Grid.Column="2" Margin="5" Click="btnDataGebruikers_Click"/>
+            <Button x:Name="btnDataCategorieën" Content="Categorieën" Grid.Row="0" Grid.Column="3" Margin="5" Click="btnDataCategorieën_Click"/>
+            <Button x:Name="btnDataZoekVerenigingen" Content="Zoek Verenigingen" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Click="btnDataZoekVerenigingen_Click"/>
+            <Button x:Name="btnDataZoekEvenementen" Content="Zoek Evenementen" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="5" Click="btnDataZoekEvenementen_Click"/>
+            <Button x:Name="btnDataZoekGebruikers" Content="Zoek Gebruikers" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Click="btnDataZoekGebruikers_Click"/>
+        </Grid>
+        <DataGrid x:Name="datagridVerenigingen" AutoGenerateColumns="True" Margin="5"/>
+    </DockPanel>
 </Window>
