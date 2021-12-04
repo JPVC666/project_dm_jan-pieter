@@ -46,19 +46,19 @@ namespace Project
             datagridVerenigingen.ItemsSource = DatabaseOperations.OphalenCategorie();
         }
 
-        private void btnDataZoekVerenigingen_Click(object sender, RoutedEventArgs e)
+        private void btnDataBewerkVerenigingen_Click(object sender, RoutedEventArgs e)
         {
             WindowVerenigingen wv = new WindowVerenigingen();
             wv.ShowDialog();
         }
 
-        private void btnDataZoekEvenementen_Click(object sender, RoutedEventArgs e)
+        private void btnDataBewerkEvenementen_Click(object sender, RoutedEventArgs e)
         {
             WindowEvenementen we = new WindowEvenementen();
             we.ShowDialog();
         }
 
-        private void btnDataZoekGebruikers_Click(object sender, RoutedEventArgs e)
+        private void btnDataBewerkGebruikers_Click(object sender, RoutedEventArgs e)
         {
             WindowGebruikers wg = new WindowGebruikers();
             wg.ShowDialog();

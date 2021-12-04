@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,22 +27,70 @@ namespace Project
 
         private void btnZoekOpTitel_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void btnZoekOpDatum_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnOphalenViaWerknemerID_Click(object sender, RoutedEventArgs e)
-        {
-
+            datagridVerenigingen1.ItemsSource = DatabaseOperations.OphaleEventsViaTitels(txtZoekOpTitel.Text);
         }
 
         private void btnZoekOpPrijs_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                if (int.TryParse(txtPrijs.Text, out int Prijs))
+                {
+                    Event ev = DatabaseOperations.OphalenEventViaPrijs(Prijs);
 
+                    if (ev == null)
+                    {
+                        MessageBox.Show("Event niet gevonden");
+                    }
+                    else
+                    {
+                        MessageBox.Show(ev.titel);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Prijs moet nummeriek zijn!");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("oei, query niet goed opgesteld" + ex.Message);
+            }
+        }
+
+        private void btnVoegEvenementToe_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnZoekOpPostcode_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (int.TryParse(txtPrijs.Text, out int Postcode))
+                {
+                    Event ev = DatabaseOperations.OphalenEventViaPrijs(Postcode);
+
+                    if (ev == null)
+                    {
+                        MessageBox.Show("Event niet gevonden");
+                    }
+                    else
+                    {
+                        MessageBox.Show(ev.titel);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Postcode moet nummeriek zijn!");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("oei, query niet goed opgesteld" + ex.Message);
+            }
         }
     }
 }

@@ -13,10 +13,11 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="WindowEvenementen" Height="450" Width="800">
+        Title="VanCalsterJan-Pieter_gtigpr2.1_mainwindow_Project" Height="450" Width="800">
     <DockPanel>
         <Grid DockPanel.Dock="Bottom">
             <Grid.RowDefinitions>
+                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -30,12 +31,20 @@
 
             <TextBox x:Name="txtZoekOpTitel" Grid.Row="0" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Titel"/>
             <Button x:Name="btnZoekOpTitel" Content="Zoek op titel" Grid.Row="0" Grid.Column="1" Margin="5" Click="btnZoekOpTitel_Click"/>
-            <TextBox x:Name="txtDatum" Grid.Row="0" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Datum"/>
-            <Button x:Name="btnZoekOpDatum" Content="Zoek op Datum" Grid.Row="0" Grid.Column="3" Margin="5" Click="btnZoekOpDatum_Click"/>
+            <TextBox x:Name="txtZoekOpDatum" Grid.Row="0" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Datum"/>
+            <Button x:Name="btnZoekOpDatum" Content="Zoek op Datum" Grid.Row="0" Grid.Column="3" Margin="5"/>
             <TextBox x:Name="txtZoekOpPostcode" Grid.Row="1" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Postcode"/>
-            <Button x:Name="btnOphalenViaWerknemerID" Content="Zoeken op Postcode" Grid.Row="1" Grid.Column="1" Margin="5" Click="btnOphalenViaWerknemerID_Click"/>
+            <Button x:Name="btnZoekOpPostcode" Content="Zoeken op Postcode" Grid.Row="1" Grid.Column="1" Margin="5" Click="btnZoekOpPostcode_Click"/>
             <TextBox x:Name="txtZoekOpPrijs" Grid.Row="1" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Prijs"/>
             <Button x:Name="btnZoekOpPrijs" Content="Zoek op prijs" Grid.Row="1" Grid.Column="3" Margin="5" Click="btnZoekOpPrijs_Click"/>
+            <TextBox x:Name="txtTitel" Grid.Row="2" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Titel"/>
+            <TextBox x:Name="txtStraat" Grid.Row="2" Grid.Column="1" Margin="5" materialDesign:HintAssist.Hint="Straat"/>
+            <TextBox x:Name="txtHuisnummer" Grid.Row="2" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Huisnummer"/>
+            <TextBox x:Name="txtGemeente" Grid.Row="3" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Gemeente"/>
+            <TextBox x:Name="txtPrijs" Grid.Row="3" Grid.Column="1" Margin="5" materialDesign:HintAssist.Hint="Prijs"/>
+            <TextBox x:Name="txtDatum" Grid.Row="3" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Datum"/>
+
+            <Button x:Name="btnVoegEvenementToe" Content="Evenement toevoeven" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Margin="5" Click="btnVoegEvenementToe_Click"/>
         </Grid>
         <DataGrid x:Name="datagridVerenigingen1" AutoGenerateColumns="True" Margin="5"/>
     </DockPanel>

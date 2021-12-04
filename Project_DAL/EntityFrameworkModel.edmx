@@ -275,7 +275,7 @@
           <Property Name="gemeente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="postcode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="prijs" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="prijs" Type="Decimal" Nullable="false" Scale="4" Precision="19" />
           <NavigationProperty Name="VerenigingEvent" Relationship="Self.FK_VerenigingEvent_eventId" FromRole="Event" ToRole="VerenigingEvent" />
         </EntityType>
         <EntityType Name="Gebruiker">

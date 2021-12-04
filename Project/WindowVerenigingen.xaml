@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="WindowVerenigingen" Height="450" Width="800">
+        Title="VanCalsterJan-Pieter_gtigpr2.1_verenigingen_Project" Height="450" Width="800">
     <DockPanel>
         <Grid DockPanel.Dock="Bottom">
             <Grid.RowDefinitions>
