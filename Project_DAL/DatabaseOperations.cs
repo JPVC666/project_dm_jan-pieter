@@ -9,6 +9,7 @@ namespace Project_DAL
 {
     public static class DatabaseOperations
     {
+        #region ophalen
         public static List<Vereniging> OphalenVereniging()
         {
             using (VerenigingenEntities2 entities = new VerenigingenEntities2())
@@ -44,7 +45,9 @@ namespace Project_DAL
                 return query.ToList();
             }
         }
+        #endregion
 
+        #region event
         public static List<Event> OphaleEventsViaTitels(string naam)
         {
             using (VerenigingenEntities2 entities = new VerenigingenEntities2())
@@ -86,7 +89,14 @@ namespace Project_DAL
                 return query.SingleOrDefault();
             }
         }
+        #endregion
 
+        #region categorie
+
+
+        #endregion
+
+        #region foutloggen
         public static void FoutLoggen(Exception fout)
         {
             using (StreamWriter writer = new StreamWriter("foutenbestand.txt", true))
@@ -99,5 +109,6 @@ namespace Project_DAL
                 writer.WriteLine();
             }
         }
+        #endregion
     }
 }
