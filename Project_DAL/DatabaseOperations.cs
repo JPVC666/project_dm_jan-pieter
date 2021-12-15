@@ -12,7 +12,7 @@ namespace Project_DAL
         #region ophalen
         public static List<Vereniging> OphalenVereniging()
         {
-            using (VerenigingenEntities2 entities = new VerenigingenEntities2())
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 var query = entities.Vereniging;
                 return query.ToList();                                                              
@@ -21,7 +21,7 @@ namespace Project_DAL
 
         public static List<Event> OphalenEvenementen()
         {
-            using (VerenigingenEntities2 entities = new VerenigingenEntities2())
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 var query = entities.Event;
                 return query.ToList();                                                              
@@ -30,7 +30,7 @@ namespace Project_DAL
 
         public static List<Gebruiker> OphalenGebruikers()
         {
-            using (VerenigingenEntities2 entities = new VerenigingenEntities2())
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 var query = entities.Gebruiker;
                 return query.ToList();
@@ -39,7 +39,7 @@ namespace Project_DAL
 
         public static List<Categorie> OphalenCategorie()
         {
-            using (VerenigingenEntities2 entities = new VerenigingenEntities2())
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 var query = entities.Categorie;
                 return query.ToList();
@@ -50,7 +50,7 @@ namespace Project_DAL
         #region event
         public static List<Event> OphaleEventsViaTitels(string naam)
         {
-            using (VerenigingenEntities2 entities = new VerenigingenEntities2())
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 return entities.Event
                     .Where(x => x.titel.Contains(naam))
@@ -61,7 +61,7 @@ namespace Project_DAL
 
         public static List<Event> OphalenEventViaDatum(DateTime Datum)
         {
-            using (VerenigingenEntities2 entities = new VerenigingenEntities2())
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 return entities.Event
                     .Where(x => x.datum == Datum)
@@ -72,7 +72,7 @@ namespace Project_DAL
 
         public static Event OphalenEventViaPrijs(int Prijs)
         {
-            using (VerenigingenEntities2 entities = new VerenigingenEntities2())
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 var query = entities.Event
                     .Where(x => x.prijs == Prijs);
@@ -80,13 +80,17 @@ namespace Project_DAL
             }
         }
 
-        public static Event OphalenEventViaPostcode(int Postcode)
+        public static List<Event> OphalenEventViaPostcode(string Postcode)
         {
-            using (VerenigingenEntities2 entities = new VerenigingenEntities2())
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
-                var query = entities.Event
-                    .Where(x => x.prijs == Postcode);
-                return query.SingleOrDefault();
+                return entities.Event
+                    .Where(x => x.postcode.Contains(Postcode))
+                    .OrderBy(x => x.postcode)
+                    .ToList();
+                /*var query = entities.Event
+                    .Where(x => x.postcode == Postcode);
+                return query.SingleOrDefault();*/
             }
         }
         #endregion

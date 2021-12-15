@@ -32,19 +32,18 @@ namespace Project
 
         private void btnZoekOpPrijs_Click(object sender, RoutedEventArgs e)
         {
-            try
+           /* try
             {
-                if (int.TryParse(txtPrijs.Text, out int Prijs))
+                if (int.TryParse(txtZoekOpPrijs.Text, out int Prijs))
                 {
-                    Event ev = DatabaseOperations.OphalenEventViaPrijs(Prijs);
 
-                    if (ev == null)
+                    if (Prijs == Prijs)
                     {
                         MessageBox.Show("Event niet gevonden");
                     }
                     else
                     {
-                        MessageBox.Show(ev.titel);
+                        datagridVerenigingen1.ItemsSource = DatabaseOperations.OphalenEventViaPrijs(Prijs);
                     }
                 }
                 else
@@ -56,7 +55,7 @@ namespace Project
             {
 
                 MessageBox.Show("oei, query niet goed opgesteld" + ex.Message);
-            }
+            }*/
         }
 
         private void btnVoegEvenementToe_Click(object sender, RoutedEventArgs e)
@@ -66,31 +65,7 @@ namespace Project
 
         private void btnZoekOpPostcode_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                if (int.TryParse(txtPrijs.Text, out int Postcode))
-                {
-                    Event ev = DatabaseOperations.OphalenEventViaPrijs(Postcode);
-
-                    if (ev == null)
-                    {
-                        MessageBox.Show("Event niet gevonden");
-                    }
-                    else
-                    {
-                        MessageBox.Show(ev.titel);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Postcode moet nummeriek zijn!");
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("oei, query niet goed opgesteld" + ex.Message);
-            }
+            datagridVerenigingen1.ItemsSource = DatabaseOperations.OphalenEventViaPostcode(txtZoekOpPostcode.Text);
         }
     }
 }

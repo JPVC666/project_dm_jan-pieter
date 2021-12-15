@@ -60,11 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categorie.cs">
-      <DependentUpon>EntityFrameworkModel.tt</DependentUpon>
+      <DependentUpon>Verenigingen1.tt</DependentUpon>
     </Compile>
     <Compile Include="DatabaseOperations.cs" />
     <Compile Include="Contactpersoon.cs">
-      <DependentUpon>EntityFrameworkModel.tt</DependentUpon>
+      <DependentUpon>Verenigingen1.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityFrameworkModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -82,26 +82,41 @@
       <DependentUpon>EntityFrameworkModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Event.cs">
-      <DependentUpon>EntityFrameworkModel.tt</DependentUpon>
+      <DependentUpon>Verenigingen1.tt</DependentUpon>
     </Compile>
     <Compile Include="Gebruiker.cs">
-      <DependentUpon>EntityFrameworkModel.tt</DependentUpon>
+      <DependentUpon>Verenigingen1.tt</DependentUpon>
     </Compile>
     <Compile Include="GebruikerVereniging.cs">
-      <DependentUpon>EntityFrameworkModel.tt</DependentUpon>
+      <DependentUpon>Verenigingen1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vereniging.cs">
-      <DependentUpon>EntityFrameworkModel.tt</DependentUpon>
+      <DependentUpon>Verenigingen1.tt</DependentUpon>
     </Compile>
     <Compile Include="VerenigingCategorie.cs">
-      <DependentUpon>EntityFrameworkModel.tt</DependentUpon>
+      <DependentUpon>Verenigingen1.tt</DependentUpon>
     </Compile>
     <Compile Include="VerenigingContactpersoon.cs">
-      <DependentUpon>EntityFrameworkModel.tt</DependentUpon>
+      <DependentUpon>Verenigingen1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Verenigingen1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Verenigingen1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Verenigingen1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Verenigingen1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Verenigingen1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Verenigingen1.edmx</DependentUpon>
     </Compile>
     <Compile Include="VerenigingEvent.cs">
-      <DependentUpon>EntityFrameworkModel.tt</DependentUpon>
+      <DependentUpon>Verenigingen1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +129,13 @@
       <DependentUpon>EntityFrameworkModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="Verenigingen1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Verenigingen1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Verenigingen1.edmx.diagram">
+      <DependentUpon>Verenigingen1.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -128,6 +150,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EntityFrameworkModel.edmx</DependentUpon>
       <LastGenOutput>EntityFrameworkModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Verenigingen1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Verenigingen1.edmx</DependentUpon>
+      <LastGenOutput>Verenigingen1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Verenigingen1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Verenigingen1.edmx</DependentUpon>
+      <LastGenOutput>Verenigingen1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

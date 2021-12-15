@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Verenigingen1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="typeVereniging" Type="varchar" MaxLength="100" />
+          <Property Name="cultuur" Type="varchar" MaxLength="100" />
+          <Property Name="sport" Type="varchar" MaxLength="100" />
+          <Property Name="leeftijd" Type="varchar" MaxLength="100" />
+          <Property Name="kansentarief" Type="bit" />
+          <Property Name="andersvalieden" Type="bit" />
+        </EntityType>
+        <EntityType Name="Contactpersoon">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="naam" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefoonnr" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="titel" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefoonnr" Type="varchar" MaxLength="100" />
+          <Property Name="beschrijving" Type="varchar" MaxLength="100" />
+          <Property Name="straat" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="huisnr" Type="varchar" MaxLength="100" />
+          <Property Name="gemeente" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="postcode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="datum" Type="datetime" Nullable="false" />
+          <Property Name="prijs" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gebruiker">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="paswoord" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="admin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GebruikerVereniging">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="gebruikerId" Type="int" Nullable="false" />
+          <Property Name="verenigingId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vereniging">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="naam" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefoonnr" Type="int" />
+          <Property Name="beschrijving" Type="varchar" MaxLength="100" />
+          <Property Name="straat" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="huisnr" Type="varchar" MaxLength="100" />
+          <Property Name="gemeente" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="postcode" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VerenigingCategorie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="verenigingId" Type="int" Nullable="false" />
+          <Property Name="categorieId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VerenigingContactpersoon">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="verenigingId" Type="int" Nullable="false" />
+          <Property Name="contactpersoonId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VerenigingEvent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="verenigingId" Type="int" Nullable="false" />
+          <Property Name="eventId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_GebruikerCategorie_verenigingId">
+          <End Role="Vereniging" Type="Self.Vereniging" Multiplicity="1" />
+          <End Role="VerenigingCategorie" Type="Self.VerenigingCategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vereniging">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingCategorie">
+              <PropertyRef Name="verenigingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GebruikerVereniging_gebruikerId">
+          <End Role="Gebruiker" Type="Self.Gebruiker" Multiplicity="1" />
+          <End Role="GebruikerVereniging" Type="Self.GebruikerVereniging" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="GebruikerVereniging">
+              <PropertyRef Name="gebruikerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GebruikerVereniging_verenigingId">
+          <End Role="Vereniging" Type="Self.Vereniging" Multiplicity="1" />
+          <End Role="GebruikerVereniging" Type="Self.GebruikerVereniging" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vereniging">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="GebruikerVereniging">
+              <PropertyRef Name="verenigingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VerenigingCategorie_categorieId">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+          <End Role="VerenigingCategorie" Type="Self.VerenigingCategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingCategorie">
+              <PropertyRef Name="categorieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VerenigingContactpersoon_contactpersoonId">
+          <End Role="Contactpersoon" Type="Self.Contactpersoon" Multiplicity="1" />
+          <End Role="VerenigingContactpersoon" Type="Self.VerenigingContactpersoon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contactpersoon">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingContactpersoon">
+              <PropertyRef Name="contactpersoonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VerenigingContactpersoon_verenigingId">
+          <End Role="Vereniging" Type="Self.Vereniging" Multiplicity="1" />
+          <End Role="VerenigingContactpersoon" Type="Self.VerenigingContactpersoon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vereniging">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingContactpersoon">
+              <PropertyRef Name="verenigingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VerenigingEvent_eventId">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="VerenigingEvent" Type="Self.VerenigingEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingEvent">
+              <PropertyRef Name="eventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VerenigingEvent_verenigingId">
+          <End Role="Vereniging" Type="Self.Vereniging" Multiplicity="1" />
+          <End Role="VerenigingEvent" Type="Self.VerenigingEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vereniging">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingEvent">
+              <PropertyRef Name="verenigingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Verenigingen1ModelStoreContainer">
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contactpersoon" EntityType="Self.Contactpersoon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gebruiker" EntityType="Self.Gebruiker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GebruikerVereniging" EntityType="Self.GebruikerVereniging" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vereniging" EntityType="Self.Vereniging" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VerenigingCategorie" EntityType="Self.VerenigingCategorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VerenigingContactpersoon" EntityType="Self.VerenigingContactpersoon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VerenigingEvent" EntityType="Self.VerenigingEvent" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_GebruikerCategorie_verenigingId" Association="Self.FK_GebruikerCategorie_verenigingId">
+            <End Role="Vereniging" EntitySet="Vereniging" />
+            <End Role="VerenigingCategorie" EntitySet="VerenigingCategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GebruikerVereniging_gebruikerId" Association="Self.FK_GebruikerVereniging_gebruikerId">
+            <End Role="Gebruiker" EntitySet="Gebruiker" />
+            <End Role="GebruikerVereniging" EntitySet="GebruikerVereniging" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GebruikerVereniging_verenigingId" Association="Self.FK_GebruikerVereniging_verenigingId">
+            <End Role="Vereniging" EntitySet="Vereniging" />
+            <End Role="GebruikerVereniging" EntitySet="GebruikerVereniging" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VerenigingCategorie_categorieId" Association="Self.FK_VerenigingCategorie_categorieId">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="VerenigingCategorie" EntitySet="VerenigingCategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VerenigingContactpersoon_contactpersoonId" Association="Self.FK_VerenigingContactpersoon_contactpersoonId">
+            <End Role="Contactpersoon" EntitySet="Contactpersoon" />
+            <End Role="VerenigingContactpersoon" EntitySet="VerenigingContactpersoon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VerenigingContactpersoon_verenigingId" Association="Self.FK_VerenigingContactpersoon_verenigingId">
+            <End Role="Vereniging" EntitySet="Vereniging" />
+            <End Role="VerenigingContactpersoon" EntitySet="VerenigingContactpersoon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VerenigingEvent_eventId" Association="Self.FK_VerenigingEvent_eventId">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="VerenigingEvent" EntitySet="VerenigingEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VerenigingEvent_verenigingId" Association="Self.FK_VerenigingEvent_verenigingId">
+            <End Role="Vereniging" EntitySet="Vereniging" />
+            <End Role="VerenigingEvent" EntitySet="VerenigingEvent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Verenigingen1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="typeVereniging" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cultuur" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sport" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="leeftijd" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="kansentarief" Type="Boolean" />
+          <Property Name="andersvalieden" Type="Boolean" />
+          <NavigationProperty Name="VerenigingCategorie" Relationship="Self.FK_VerenigingCategorie_categorieId" FromRole="Categorie" ToRole="VerenigingCategorie" />
+        </EntityType>
+        <EntityType Name="Contactpersoon">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefoonnr" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="VerenigingContactpersoon" Relationship="Self.FK_VerenigingContactpersoon_contactpersoonId" FromRole="Contactpersoon" ToRole="VerenigingContactpersoon" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="titel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefoonnr" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="beschrijving" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="straat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="huisnr" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="gemeente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postcode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="prijs" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="VerenigingEvent" Relationship="Self.FK_VerenigingEvent_eventId" FromRole="Event" ToRole="VerenigingEvent" />
+        </EntityType>
+        <EntityType Name="Gebruiker">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="paswoord" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="admin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="GebruikerVereniging" Relationship="Self.FK_GebruikerVereniging_gebruikerId" FromRole="Gebruiker" ToRole="GebruikerVereniging" />
+        </EntityType>
+        <EntityType Name="GebruikerVereniging">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="gebruikerId" Type="Int32" Nullable="false" />
+          <Property Name="verenigingId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gebruiker" Relationship="Self.FK_GebruikerVereniging_gebruikerId" FromRole="GebruikerVereniging" ToRole="Gebruiker" />
+          <NavigationProperty Name="Vereniging" Relationship="Self.FK_GebruikerVereniging_verenigingId" FromRole="GebruikerVereniging" ToRole="Vereniging" />
+        </EntityType>
+        <EntityType Name="Vereniging">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefoonnr" Type="Int32" />
+          <Property Name="beschrijving" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="straat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="huisnr" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="gemeente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postcode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="GebruikerVereniging" Relationship="Self.FK_GebruikerVereniging_verenigingId" FromRole="Vereniging" ToRole="GebruikerVereniging" />
+          <NavigationProperty Name="VerenigingCategorie" Relationship="Self.FK_GebruikerCategorie_verenigingId" FromRole="Vereniging" ToRole="VerenigingCategorie" />
+          <NavigationProperty Name="VerenigingContactpersoon" Relationship="Self.FK_VerenigingContactpersoon_verenigingId" FromRole="Vereniging" ToRole="VerenigingContactpersoon" />
+          <NavigationProperty Name="VerenigingEvent" Relationship="Self.FK_VerenigingEvent_verenigingId" FromRole="Vereniging" ToRole="VerenigingEvent" />
+        </EntityType>
+        <EntityType Name="VerenigingCategorie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="verenigingId" Type="Int32" Nullable="false" />
+          <Property Name="categorieId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK_VerenigingCategorie_categorieId" FromRole="VerenigingCategorie" ToRole="Categorie" />
+          <NavigationProperty Name="Vereniging" Relationship="Self.FK_GebruikerCategorie_verenigingId" FromRole="VerenigingCategorie" ToRole="Vereniging" />
+        </EntityType>
+        <EntityType Name="VerenigingContactpersoon">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="verenigingId" Type="Int32" Nullable="false" />
+          <Property Name="contactpersoonId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contactpersoon" Relationship="Self.FK_VerenigingContactpersoon_contactpersoonId" FromRole="VerenigingContactpersoon" ToRole="Contactpersoon" />
+          <NavigationProperty Name="Vereniging" Relationship="Self.FK_VerenigingContactpersoon_verenigingId" FromRole="VerenigingContactpersoon" ToRole="Vereniging" />
+        </EntityType>
+        <EntityType Name="VerenigingEvent">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="verenigingId" Type="Int32" Nullable="false" />
+          <Property Name="eventId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_VerenigingEvent_eventId" FromRole="VerenigingEvent" ToRole="Event" />
+          <NavigationProperty Name="Vereniging" Relationship="Self.FK_VerenigingEvent_verenigingId" FromRole="VerenigingEvent" ToRole="Vereniging" />
+        </EntityType>
+        <Association Name="FK_VerenigingCategorie_categorieId">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+          <End Role="VerenigingCategorie" Type="Self.VerenigingCategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingCategorie">
+              <PropertyRef Name="categorieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VerenigingContactpersoon_contactpersoonId">
+          <End Role="Contactpersoon" Type="Self.Contactpersoon" Multiplicity="1" />
+          <End Role="VerenigingContactpersoon" Type="Self.VerenigingContactpersoon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contactpersoon">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingContactpersoon">
+              <PropertyRef Name="contactpersoonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VerenigingEvent_eventId">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="VerenigingEvent" Type="Self.VerenigingEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingEvent">
+              <PropertyRef Name="eventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GebruikerVereniging_gebruikerId">
+          <End Role="Gebruiker" Type="Self.Gebruiker" Multiplicity="1" />
+          <End Role="GebruikerVereniging" Type="Self.GebruikerVereniging" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="GebruikerVereniging">
+              <PropertyRef Name="gebruikerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GebruikerVereniging_verenigingId">
+          <End Role="Vereniging" Type="Self.Vereniging" Multiplicity="1" />
+          <End Role="GebruikerVereniging" Type="Self.GebruikerVereniging" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vereniging">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="GebruikerVereniging">
+              <PropertyRef Name="verenigingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GebruikerCategorie_verenigingId">
+          <End Role="Vereniging" Type="Self.Vereniging" Multiplicity="1" />
+          <End Role="VerenigingCategorie" Type="Self.VerenigingCategorie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vereniging">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingCategorie">
+              <PropertyRef Name="verenigingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VerenigingContactpersoon_verenigingId">
+          <End Role="Vereniging" Type="Self.Vereniging" Multiplicity="1" />
+          <End Role="VerenigingContactpersoon" Type="Self.VerenigingContactpersoon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vereniging">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingContactpersoon">
+              <PropertyRef Name="verenigingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VerenigingEvent_verenigingId">
+          <End Role="Vereniging" Type="Self.Vereniging" Multiplicity="1" />
+          <End Role="VerenigingEvent" Type="Self.VerenigingEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vereniging">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VerenigingEvent">
+              <PropertyRef Name="verenigingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Verenigingen1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+          <EntitySet Name="Contactpersoon" EntityType="Self.Contactpersoon" />
+          <EntitySet Name="Event" EntityType="Self.Event" />
+          <EntitySet Name="Gebruiker" EntityType="Self.Gebruiker" />
+          <EntitySet Name="GebruikerVereniging" EntityType="Self.GebruikerVereniging" />
+          <EntitySet Name="Vereniging" EntityType="Self.Vereniging" />
+          <EntitySet Name="VerenigingCategorie" EntityType="Self.VerenigingCategorie" />
+          <EntitySet Name="VerenigingContactpersoon" EntityType="Self.VerenigingContactpersoon" />
+          <EntitySet Name="VerenigingEvent" EntityType="Self.VerenigingEvent" />
+          <AssociationSet Name="FK_VerenigingCategorie_categorieId" Association="Self.FK_VerenigingCategorie_categorieId">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="VerenigingCategorie" EntitySet="VerenigingCategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VerenigingContactpersoon_contactpersoonId" Association="Self.FK_VerenigingContactpersoon_contactpersoonId">
+            <End Role="Contactpersoon" EntitySet="Contactpersoon" />
+            <End Role="VerenigingContactpersoon" EntitySet="VerenigingContactpersoon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VerenigingEvent_eventId" Association="Self.FK_VerenigingEvent_eventId">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="VerenigingEvent" EntitySet="VerenigingEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GebruikerVereniging_gebruikerId" Association="Self.FK_GebruikerVereniging_gebruikerId">
+            <End Role="Gebruiker" EntitySet="Gebruiker" />
+            <End Role="GebruikerVereniging" EntitySet="GebruikerVereniging" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GebruikerVereniging_verenigingId" Association="Self.FK_GebruikerVereniging_verenigingId">
+            <End Role="Vereniging" EntitySet="Vereniging" />
+            <End Role="GebruikerVereniging" EntitySet="GebruikerVereniging" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GebruikerCategorie_verenigingId" Association="Self.FK_GebruikerCategorie_verenigingId">
+            <End Role="Vereniging" EntitySet="Vereniging" />
+            <End Role="VerenigingCategorie" EntitySet="VerenigingCategorie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VerenigingContactpersoon_verenigingId" Association="Self.FK_VerenigingContactpersoon_verenigingId">
+            <End Role="Vereniging" EntitySet="Vereniging" />
+            <End Role="VerenigingContactpersoon" EntitySet="VerenigingContactpersoon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VerenigingEvent_verenigingId" Association="Self.FK_VerenigingEvent_verenigingId">
+            <End Role="Vereniging" EntitySet="Vereniging" />
+            <End Role="VerenigingEvent" EntitySet="VerenigingEvent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Verenigingen1ModelStoreContainer" CdmEntityContainer="Verenigingen1Entities">
+          <EntitySetMapping Name="Categorie">
+            <EntityTypeMapping TypeName="Verenigingen1Model.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="typeVereniging" ColumnName="typeVereniging" />
+                <ScalarProperty Name="cultuur" ColumnName="cultuur" />
+                <ScalarProperty Name="sport" ColumnName="sport" />
+                <ScalarProperty Name="leeftijd" ColumnName="leeftijd" />
+                <ScalarProperty Name="kansentarief" ColumnName="kansentarief" />
+                <ScalarProperty Name="andersvalieden" ColumnName="andersvalieden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contactpersoon">
+            <EntityTypeMapping TypeName="Verenigingen1Model.Contactpersoon">
+              <MappingFragment StoreEntitySet="Contactpersoon">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naam" ColumnName="naam" />
+                <ScalarProperty Name="telefoonnr" ColumnName="telefoonnr" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event">
+            <EntityTypeMapping TypeName="Verenigingen1Model.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="titel" ColumnName="titel" />
+                <ScalarProperty Name="telefoonnr" ColumnName="telefoonnr" />
+                <ScalarProperty Name="beschrijving" ColumnName="beschrijving" />
+                <ScalarProperty Name="straat" ColumnName="straat" />
+                <ScalarProperty Name="huisnr" ColumnName="huisnr" />
+                <ScalarProperty Name="gemeente" ColumnName="gemeente" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="prijs" ColumnName="prijs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gebruiker">
+            <EntityTypeMapping TypeName="Verenigingen1Model.Gebruiker">
+              <MappingFragment StoreEntitySet="Gebruiker">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="paswoord" ColumnName="paswoord" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GebruikerVereniging">
+            <EntityTypeMapping TypeName="Verenigingen1Model.GebruikerVereniging">
+              <MappingFragment StoreEntitySet="GebruikerVereniging">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gebruikerId" ColumnName="gebruikerId" />
+                <ScalarProperty Name="verenigingId" ColumnName="verenigingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vereniging">
+            <EntityTypeMapping TypeName="Verenigingen1Model.Vereniging">
+              <MappingFragment StoreEntitySet="Vereniging">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="naam" ColumnName="naam" />
+                <ScalarProperty Name="telefoonnr" ColumnName="telefoonnr" />
+                <ScalarProperty Name="beschrijving" ColumnName="beschrijving" />
+                <ScalarProperty Name="straat" ColumnName="straat" />
+                <ScalarProperty Name="huisnr" ColumnName="huisnr" />
+                <ScalarProperty Name="gemeente" ColumnName="gemeente" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VerenigingCategorie">
+            <EntityTypeMapping TypeName="Verenigingen1Model.VerenigingCategorie">
+              <MappingFragment StoreEntitySet="VerenigingCategorie">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="verenigingId" ColumnName="verenigingId" />
+                <ScalarProperty Name="categorieId" ColumnName="categorieId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VerenigingContactpersoon">
+            <EntityTypeMapping TypeName="Verenigingen1Model.VerenigingContactpersoon">
+              <MappingFragment StoreEntitySet="VerenigingContactpersoon">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="verenigingId" ColumnName="verenigingId" />
+                <ScalarProperty Name="contactpersoonId" ColumnName="contactpersoonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VerenigingEvent">
+            <EntityTypeMapping TypeName="Verenigingen1Model.VerenigingEvent">
+              <MappingFragment StoreEntitySet="VerenigingEvent">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="verenigingId" ColumnName="verenigingId" />
+                <ScalarProperty Name="eventId" ColumnName="eventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

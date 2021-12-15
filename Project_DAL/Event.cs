@@ -29,7 +29,7 @@ namespace Project_DAL
         public string gemeente { get; set; }
         public string postcode { get; set; }
         public System.DateTime datum { get; set; }
-        public decimal prijs { get; set; }
+        public int prijs { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VerenigingEvent> VerenigingEvent { get; set; }
