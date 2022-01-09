@@ -95,6 +95,10 @@ namespace Project_DAL
         }
         #endregion
 
+        #region Gebruiker
+
+        #endregion
+
         #region categorie
 
 
