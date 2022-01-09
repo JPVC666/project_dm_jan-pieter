@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,11 @@ namespace Project
         }
 
         private void btnZoekOpEmail_Click(object sender, RoutedEventArgs e)
+        {
+            datagridgebruiker.ItemsSource = DatabaseOperations.OphaleGebruikerViaEmail(txtZoekOpEmail.Text);
+        }
+
+        private void btnVoegGebruikerToe_Click(object sender, RoutedEventArgs e)
         {
 
         }

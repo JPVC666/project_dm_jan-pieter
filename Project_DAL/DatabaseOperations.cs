@@ -96,7 +96,16 @@ namespace Project_DAL
         #endregion
 
         #region Gebruiker
-
+        public static List<Gebruiker> OphaleGebruikerViaEmail(string email)
+        {
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
+            {
+                return entities.Gebruiker
+                    .Where(x => x.email.Contains(email))
+                    .OrderBy(x => x.email)
+                    .ToList();
+            }
+        }
         #endregion
 
         #region categorie

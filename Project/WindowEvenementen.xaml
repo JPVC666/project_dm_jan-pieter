@@ -44,7 +44,7 @@
             <TextBox x:Name="txtPrijs" Grid.Row="3" Grid.Column="1" Margin="5" materialDesign:HintAssist.Hint="Prijs"/>
             <TextBox x:Name="txtDatum" Grid.Row="3" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Datum"/>
 
-            <Button x:Name="btnVoegEvenementToe" Content="Evenement toevoeven" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Margin="5" Click="btnVoegEvenementToe_Click"/>
+            <Button x:Name="btnVoegEvenementToe" Content="Evenement toevoegen" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Margin="5" Click="btnVoegEvenementToe_Click"/>
         </Grid>
         <DataGrid x:Name="datagridVerenigingen1" AutoGenerateColumns="True" Margin="5"/>
     </DockPanel>
