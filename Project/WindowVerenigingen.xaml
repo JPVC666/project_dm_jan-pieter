@@ -29,15 +29,24 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="txtZoekVereniging" Grid.Row="1" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Naam Vereniging"/>
-            <Button x:Name="btnZoekOpNaamVereniging" Content="Zoek Vereniging" Grid.Row="1" Grid.Column="1"  Margin="5" Click="btnZoekOpNaamVereniging_Click"/>
-            <TextBox x:Name="txtGemeente" Grid.Row="1" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Gemeente"/>
-            <Button x:Name="btnZoekOpGemeente" Content="Zoek Op Gemeente" Grid.Row="1" Grid.Column="3" Margin="5" Click="btnZoekOpGemeente_Click"/>
-            <TextBox x:Name="txtStraat" Grid.Row="2" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Straatnaam"/>
-            <Button x:Name="btnZoekViaStraat" Content="Zoek op Straat" Grid.Row="2" Grid.Column="1"  Margin="5" Click="btnZoekViaStraat_Click"/>
-            <TextBox x:Name="txtVerenigingId" Grid.Row="2" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="VerenigingID"/>
-            <Button x:Name="btnZoekOpVerenigingId" Content="Zoek Met ID" Grid.Row="2" Grid.Column="3"  Margin="5" Click="btnZoekOpVerenigingId_Click"/>
+            <TextBox x:Name="txtZoekNaamVereniging" Grid.Row="0" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Naam Vereniging"/>
+            <Button x:Name="btnZoekOpNaamVereniging" Content="Zoek Vereniging" Grid.Row="0" Grid.Column="1"  Margin="5" Click="btnZoekOpNaamVereniging_Click"/>
+            <TextBox x:Name="txtGemeente" Grid.Row="0" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Gemeente"/>
+            <Button x:Name="btnZoekOpGemeente" Content="Zoek Op Gemeente" Grid.Row="0" Grid.Column="3" Margin="5" Click="btnZoekOpGemeente_Click"/>
+            <TextBox x:Name="txtStraat" Grid.Row="1" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Straatnaam"/>
+            <Button x:Name="btnZoekViaStraat" Content="Zoek op Straat" Grid.Row="1" Grid.Column="1"  Margin="5" Click="btnZoekViaStraat_Click"/>
+            <TextBox x:Name="txtVerenigingId" Grid.Row="1" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="VerenigingID"/>
+            <Button x:Name="btnZoekOpVerenigingId" Content="Zoek Met ID" Grid.Row="1" Grid.Column="3"  Margin="5" Click="btnZoekOpVerenigingId_Click"/>
+
+            <TextBox x:Name="txtVerenigingNaam" Grid.Row="2" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Naam"/>
+            <TextBox x:Name="txtVerenigingBeschrijving" Grid.Row="2" Grid.Column="1" Margin="5" materialDesign:HintAssist.Hint="Beschrijving"/>
+            <TextBox x:Name="txtVerenigingStraat" Grid.Row="2" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Straat"/>
+            <TextBox x:Name="txtVerenigingHuisnr" Grid.Row="3" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Huisnummer"/>
+            <TextBox x:Name="txtVerenigingGemeente" Grid.Row="3" Grid.Column="1" Margin="5" materialDesign:HintAssist.Hint="Gemeente"/>
+            <TextBox x:Name="txtVerenigingPostcode" Grid.Row="3" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Postcode"/>
+
+            <Button x:Name="btnVoegVerenigingToe" Content="Vereniging toevoegen" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Margin="5" Click="btnVoegVerenigingToe_Click"/>
         </Grid>
-        <DataGrid x:Name="datagridVerenigingen3" AutoGenerateColumns="True" Margin="5"/>
+        <DataGrid x:Name="datagridVerenigingen1" AutoGenerateColumns="True" Margin="5"/>
     </DockPanel>
 </Window>

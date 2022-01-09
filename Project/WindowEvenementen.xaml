@@ -46,6 +46,6 @@
 
             <Button x:Name="btnVoegEvenementToe" Content="Evenement toevoegen" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Margin="5" Click="btnVoegEvenementToe_Click"/>
         </Grid>
-        <DataGrid x:Name="datagridVerenigingen1" AutoGenerateColumns="True" Margin="5"/>
+        <DataGrid x:Name="datagridEvenementen" AutoGenerateColumns="True" Margin="5"/>
     </DockPanel>
 </Window>

@@ -27,7 +27,7 @@ namespace Project
 
         private void btnZoekOpEmail_Click(object sender, RoutedEventArgs e)
         {
-            datagridgebruiker.ItemsSource = DatabaseOperations.OphaleGebruikerViaEmail(txtZoekOpEmail.Text);
+            datagridGebruiker.ItemsSource = DatabaseOperations.OphaleGebruikerViaEmail(txtZoekOpEmail.Text);
         }
 
         private void btnVoegGebruikerToe_Click(object sender, RoutedEventArgs e)

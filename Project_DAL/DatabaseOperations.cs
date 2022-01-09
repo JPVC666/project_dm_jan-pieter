@@ -108,6 +108,52 @@ namespace Project_DAL
         }
         #endregion
 
+        #region Verenigingen
+        public static List<Vereniging> OphaleVerenigingViaNaam(string naam)
+        {
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
+            {
+                return entities.Vereniging
+                    .Where(x => x.naam.Contains(naam))
+                    .OrderBy(x => x.naam)
+                    .ToList();
+            }
+        }
+
+        public static List<Vereniging> OphaleVerenigingViaGemeente(string gemeente)
+        {
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
+            {
+                return entities.Vereniging
+                    .Where(x => x.gemeente.Contains(gemeente))
+                    .OrderBy(x => x.gemeente)
+                    .ToList();
+            }
+        }
+
+        public static List<Vereniging> OphaleVerenigingViaStraat(string straat)
+        {
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
+            {
+                return entities.Vereniging
+                    .Where(x => x.straat.Contains(straat))
+                    .OrderBy(x => x.straat)
+                    .ToList();
+            }
+        }
+
+        public static Vereniging OphaleVerenigingViaId(int verenigingId)
+        {
+            using (Verenigingen1Entities entities = new Verenigingen1Entities())
+            {
+                var query = entities.Vereniging
+                    .Where(x => x.id == verenigingId)
+                    .OrderBy(x => x.naam);
+                    return query.SingleOrDefault();
+            }
+        }
+        #endregion
+
         #region categorie
 
 

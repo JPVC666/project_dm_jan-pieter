@@ -27,7 +27,7 @@ namespace Project
 
         private void btnZoekOpTitel_Click(object sender, RoutedEventArgs e)
         {
-            datagridVerenigingen1.ItemsSource = DatabaseOperations.OphaleEventsViaTitels(txtZoekOpTitel.Text);
+            datagridEvenementen.ItemsSource = DatabaseOperations.OphaleEventsViaTitels(txtZoekOpTitel.Text);
         }
 
         private void btnZoekOpPrijs_Click(object sender, RoutedEventArgs e)
@@ -65,7 +65,7 @@ namespace Project
 
         private void btnZoekOpPostcode_Click(object sender, RoutedEventArgs e)
         {
-            datagridVerenigingen1.ItemsSource = DatabaseOperations.OphalenEventViaPostcode(txtZoekOpPostcode.Text);
+            datagridEvenementen.ItemsSource = DatabaseOperations.OphalenEventViaPostcode(txtZoekOpPostcode.Text);
         }
     }
 }

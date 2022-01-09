@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,20 +27,49 @@ namespace Project
 
         private void btnZoekOpNaamVereniging_Click(object sender, RoutedEventArgs e)
         {
-
+            datagridVerenigingen1.ItemsSource = DatabaseOperations.OphaleVerenigingViaNaam(txtZoekNaamVereniging.Text);
         }
 
         private void btnZoekOpGemeente_Click(object sender, RoutedEventArgs e)
         {
-
+            datagridVerenigingen1.ItemsSource = DatabaseOperations.OphaleVerenigingViaGemeente(txtGemeente.Text);
         }
 
         private void btnZoekViaStraat_Click(object sender, RoutedEventArgs e)
         {
-
+            datagridVerenigingen1.ItemsSource = DatabaseOperations.OphaleVerenigingViaStraat(txtStraat.Text);
         }
 
         private void btnZoekOpVerenigingId_Click(object sender, RoutedEventArgs e)
+        {
+            //datagridVerenigingen1.ItemsSource = DatabaseOperations.OphaleVerenigingViaId(verenigingId);
+            try
+            {
+                if (int.TryParse(txtVerenigingId.Text, out int verenigingId))
+                {
+                    Vereniging vereniging = DatabaseOperations.OphaleVerenigingViaId(verenigingId);
+
+                    if (vereniging == null)
+                    {
+                        MessageBox.Show("Vereniging niet gevonden");
+                    }
+                    else
+                    {
+                        MessageBox.Show(vereniging.naam);                        
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("verenigingId moet nummeriek zijn!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("oei, query niet goed opgesteld" + ex.Message);
+            }
+        }
+
+        private void btnVoegVerenigingToe_Click(object sender, RoutedEventArgs e)
         {
 
         }
