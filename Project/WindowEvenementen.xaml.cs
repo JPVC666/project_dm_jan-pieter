@@ -32,18 +32,19 @@ namespace Project
 
         private void btnZoekOpPrijs_Click(object sender, RoutedEventArgs e)
         {
-           /* try
+            try
             {
-                if (int.TryParse(txtZoekOpPrijs.Text, out int Prijs))
+                if (int.TryParse(txtZoekOpPrijs.Text, out int prijs))
                 {
+                    Event verenigingsevent = DatabaseOperations.OphalenEventViaPrijs(prijs);
 
-                    if (Prijs == Prijs)
+                    if (verenigingsevent == null)
                     {
                         MessageBox.Show("Event niet gevonden");
                     }
                     else
                     {
-                        datagridVerenigingen1.ItemsSource = DatabaseOperations.OphalenEventViaPrijs(Prijs);
+                        MessageBox.Show(verenigingsevent.titel + " " +  verenigingsevent.prijs);
                     }
                 }
                 else
@@ -53,19 +54,23 @@ namespace Project
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("oei, query niet goed opgesteld" + ex.Message);
-            }*/
-        }
-
-        private void btnVoegEvenementToe_Click(object sender, RoutedEventArgs e)
-        {
-
+            }
         }
 
         private void btnZoekOpPostcode_Click(object sender, RoutedEventArgs e)
         {
             datagridEvenementen.ItemsSource = DatabaseOperations.OphalenEventViaPostcode(txtZoekOpPostcode.Text);
+        }
+
+        private void btnZoekOpStraat_Click(object sender, RoutedEventArgs e)
+        {
+            datagridEvenementen.ItemsSource = DatabaseOperations.OphalenEventViaStraat(txtZoekOpStraat.Text);
+        }
+
+        private void btnVoegEvenementToe_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

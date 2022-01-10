@@ -59,14 +59,15 @@ namespace Project_DAL
             }
         }
 
-        public static List<Event> OphalenEventViaDatum(DateTime Datum)
+        public static List<Event> OphalenEventViaStraat(string straat)
         {
             using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 return entities.Event
-                    .Where(x => x.datum == Datum)
+                    .Where(x => x.straat.Contains(straat))
                     .OrderBy(x => x.titel)
                     .ToList();
+                    
             }
         }
 
@@ -76,7 +77,7 @@ namespace Project_DAL
             {
                 var query = entities.Event
                     .Where(x => x.prijs == Prijs);
-                return query.SingleOrDefault();
+                return query.FirstOrDefault();
             }
         }
 

@@ -42,7 +42,6 @@ namespace Project
 
         private void btnZoekOpVerenigingId_Click(object sender, RoutedEventArgs e)
         {
-            //datagridVerenigingen1.ItemsSource = DatabaseOperations.OphaleVerenigingViaId(verenigingId);
             try
             {
                 if (int.TryParse(txtVerenigingId.Text, out int verenigingId))
@@ -55,7 +54,7 @@ namespace Project
                     }
                     else
                     {
-                        MessageBox.Show(vereniging.naam);                        
+                        MessageBox.Show(vereniging.naam);
                     }
                 }
                 else

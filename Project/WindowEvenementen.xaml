@@ -31,8 +31,8 @@
 
             <TextBox x:Name="txtZoekOpTitel" Grid.Row="0" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Titel"/>
             <Button x:Name="btnZoekOpTitel" Content="Zoek op titel" Grid.Row="0" Grid.Column="1" Margin="5" Click="btnZoekOpTitel_Click"/>
-            <TextBox x:Name="txtZoekOpDatum" Grid.Row="0" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Datum"/>
-            <Button x:Name="btnZoekOpDatum" Content="Zoek op Datum" Grid.Row="0" Grid.Column="3" Margin="5"/>
+            <TextBox x:Name="txtZoekOpStraat" Grid.Row="0" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Straat"/>
+            <Button x:Name="btnZoekOpStraat" Content="Zoek op Straat" Grid.Row="0" Grid.Column="3" Margin="5" Click="btnZoekOpStraat_Click"/>
             <TextBox x:Name="txtZoekOpPostcode" Grid.Row="1" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Postcode"/>
             <Button x:Name="btnZoekOpPostcode" Content="Zoeken op Postcode" Grid.Row="1" Grid.Column="1" Margin="5" Click="btnZoekOpPostcode_Click"/>
             <TextBox x:Name="txtZoekOpPrijs" Grid.Row="1" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Prijs"/>
