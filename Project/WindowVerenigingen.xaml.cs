@@ -68,9 +68,59 @@ namespace Project
             }
         }
 
+        private string Valideer(string columnName)
+        {
+            if (columnName == "txtVerenigingNaam" && string.IsNullOrWhiteSpace(txtVerenigingNaam.Text))
+            {
+                return "Verenigings naam is een verplicht in te vullen veld!" + Environment.NewLine;
+            }
+            if (columnName == "txtVerenigingBeschrijving" && string.IsNullOrWhiteSpace(txtVerenigingBeschrijving.Text))
+            {
+                return "Beschrijving is een verplicht in te vullen veld!" + Environment.NewLine;
+            }
+            if (columnName == "txtVerenigingStraat" && string.IsNullOrWhiteSpace(txtVerenigingStraat.Text))
+            {
+                return "Straat is een verplicht in te vullen veld!" + Environment.NewLine;
+            }
+            if (columnName == "txtVerenigingHuisnr" && string.IsNullOrWhiteSpace(txtVerenigingHuisnr.Text))
+            {
+                return "huisnummer is een verplicht in te vullen veld!" + Environment.NewLine;
+            }
+            if (columnName == "txtVerenigingGemeente" && string.IsNullOrWhiteSpace(txtVerenigingGemeente.Text))
+            {
+                return "Straat is een verplicht in te vullen veld!" + Environment.NewLine;
+            }
+            if (columnName == "txtVerenigingPostcode" && string.IsNullOrWhiteSpace(txtVerenigingPostcode.Text))
+            {
+                return "postcode is een verplicht in te vullen veld!" + Environment.NewLine;
+            }
+            return "";
+        }
+
         private void btnVoegVerenigingToe_Click(object sender, RoutedEventArgs e)
         {
+            string foutmelding = Valideer("txtVerenigingNaam");
+            foutmelding += Valideer("txtVerenigingBeschrijving");
+            foutmelding += Valideer("txtVerenigingStraat");
+            foutmelding += Valideer("txtVerenigingHuisnr");
+            foutmelding += Valideer("txtVerenigingGemeente");
+            foutmelding += Valideer("txtVerenigingPostcode");
 
+            if (string.IsNullOrWhiteSpace(foutmelding))
+            {
+                Vereniging vereniging = new Vereniging();
+                vereniging.naam = txtVerenigingNaam.Text;
+                vereniging.beschrijving = txtVerenigingBeschrijving.Text;
+                vereniging.straat = txtVerenigingStraat.Text;
+                vereniging.huisnr = txtVerenigingHuisnr.Text;
+                vereniging.gemeente = txtVerenigingGemeente.Text;
+                vereniging.postcode = txtVerenigingPostcode.Text;
+
+            }
+            else
+            {
+                MessageBox.Show(foutmelding);
+            }
         }
     }
 }

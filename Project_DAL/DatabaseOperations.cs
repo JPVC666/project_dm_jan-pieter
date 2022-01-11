@@ -15,6 +15,7 @@ namespace Project_DAL
             using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 var query = entities.Vereniging;
+                    //.Include("VerenigingContactpersoon");
                 return query.ToList();                                                              
             }
         }

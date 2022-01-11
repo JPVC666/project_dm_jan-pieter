@@ -7,30 +7,33 @@ using System.Threading.Tasks;
 
 namespace Project_Models1
 {
-    public abstract class Basisklasse : IDataErrorInfo
+    public abstract class BasisKlasse : IDataErrorInfo
     {
-        public abstract string this[string columnName] { get; }
+        public abstract string this[string ColumnName] { get; }
+
+        public bool IsGeldig()
+        {
+            return string.IsNullOrWhiteSpace(Error);
+        }
 
         public string Error
         {
             get
             {
                 string foutmeldingen = "";
-                foreach (var item in GetType().GetProperties())
+                foreach (var item in this.GetType().GetProperties())
                 {
-                    string fout = this[item.Name];
-                    if (!string.IsNullOrWhiteSpace(fout))
+                    if (item.CanRead)
                     {
-                        foutmeldingen += fout + Environment.NewLine;
-                    }                    
+                        string fout = this[item.Name];
+                        if (!string.IsNullOrWhiteSpace(fout))
+                        {
+                            foutmeldingen += fout + Environment.NewLine;
+                        }
+                    }
                 }
                 return foutmeldingen;
             }
-        }
-
-        public bool IsGeldig()
-        {
-            return string.IsNullOrWhiteSpace(Error);
         }
     }
 }

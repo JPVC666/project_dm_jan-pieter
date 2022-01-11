@@ -90,6 +90,7 @@
     <Compile Include="GebruikerVereniging.cs">
       <DependentUpon>Verenigingen1.tt</DependentUpon>
     </Compile>
+    <Compile Include="partial\Vereniging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vereniging.cs">
       <DependentUpon>Verenigingen1.tt</DependentUpon>
@@ -161,6 +162,12 @@
       <DependentUpon>Verenigingen1.edmx</DependentUpon>
       <LastGenOutput>Verenigingen1.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project_Models1\Project_Models1.csproj">
+      <Project>{3C5644C5-BB72-4CAF-B8B4-B04153E29DAF}</Project>
+      <Name>Project_Models1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
