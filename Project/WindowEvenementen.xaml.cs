@@ -34,18 +34,10 @@ namespace Project
         {
             try
             {
-                if (int.TryParse(txtZoekOpPrijs.Text, out int prijs))
+                if (int.TryParse(txtZoekOpPrijs.Text, out int Prijs))
                 {
-                    Event verenigingsevent = DatabaseOperations.OphalenEventViaPrijs(prijs);
-
-                    if (verenigingsevent == null)
-                    {
-                        MessageBox.Show("Event niet gevonden");
-                    }
-                    else
-                    {
-                        MessageBox.Show(verenigingsevent.titel + " " +  verenigingsevent.prijs);
-                    }
+                    List<Event> ev = DatabaseOperations.OphalenEventViaPrijs(Prijs);
+                    datagridEvenementen.ItemsSource = ev;                                        
                 }
                 else
                 {

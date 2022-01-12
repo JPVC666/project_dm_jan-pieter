@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Project_DAL
 {
     public static class DatabaseOperations
     {
-        #region ophalen
+        #region DataBewerking
         public static List<Vereniging> OphalenVereniging()
         {
             using (Verenigingen1Entities entities = new Verenigingen1Entities())
@@ -46,6 +47,40 @@ namespace Project_DAL
                 return query.ToList();
             }
         }
+
+       public static int ToevoegenVereniging(Vereniging v)
+        {
+            try
+            {
+                using (Verenigingen1Entities entities = new Verenigingen1Entities())
+                {
+                    entities.Vereniging.Add(v);
+                    return entities.SaveChanges();
+                }
+            }
+            catch(Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
+        public static int VerwijderVereniging(Vereniging v)
+        {
+            try
+            {
+                using (Verenigingen1Entities entities = new Verenigingen1Entities())
+                {
+                    entities.Entry(v).State = EntityState.Deleted;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
         #endregion
 
         #region event
@@ -72,13 +107,13 @@ namespace Project_DAL
             }
         }
 
-        public static Event OphalenEventViaPrijs(int Prijs)
+        public static List<Event> OphalenEventViaPrijs(int Prijs)
         {
             using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 var query = entities.Event
-                    .Where(x => x.prijs == Prijs);
-                return query.FirstOrDefault();
+                    .Where(x => x.prijs == Prijs);                    
+                return query.ToList();
             }
         }
 
@@ -117,7 +152,6 @@ namespace Project_DAL
             {
                 return entities.Vereniging
                     .Where(x => x.naam.Contains(naam))
-                    .OrderBy(x => x.naam)
                     .ToList();
             }
         }
@@ -139,7 +173,7 @@ namespace Project_DAL
             {
                 return entities.Vereniging
                     .Where(x => x.straat.Contains(straat))
-                    .OrderBy(x => x.straat)
+                    .OrderBy(x => x.id)
                     .ToList();
             }
         }
@@ -150,7 +184,7 @@ namespace Project_DAL
             {
                 var query = entities.Vereniging
                     .Where(x => x.id == verenigingId)
-                    .OrderBy(x => x.naam);
+                    .OrderBy(x => x.id);
                     return query.ToList();
             }
         }
@@ -160,20 +194,6 @@ namespace Project_DAL
 
 
         #endregion
-
-        #region foutloggen
-        public static void FoutLoggen(Exception fout)
-        {
-            using (StreamWriter writer = new StreamWriter("foutenbestand.txt", true))
-            {
-                writer.WriteLine(DateTime.Now.ToString("HH:mm:ss tt"));
-                writer.WriteLine(fout.GetType().Name);
-                writer.WriteLine(fout.Message);
-                writer.WriteLine(fout.StackTrace);
-                writer.WriteLine(new String('-', 80));
-                writer.WriteLine();
-            }
-        }
-        #endregion
+       
     }
 }

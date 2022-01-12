@@ -21,7 +21,8 @@ namespace Project_Models1
             get
             {
                 string foutmeldingen = "";
-                foreach (var item in this.GetType().GetProperties())
+
+                foreach (var item in GetType().GetProperties())
                 {
                     if (item.CanRead)
                     {

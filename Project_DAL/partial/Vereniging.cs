@@ -13,32 +13,48 @@ namespace Project_DAL
         {
             get
             {
-                //if (columnName == "Naam" && string.IsNullOrWhiteSpace(Naam))
-                //{
-                //    return "Verenigings naam is een verplicht in te vullen veld!" + Environment.NewLine;
-                //}
-                //if (columnName == "txtVerenigingBeschrijving" && string.IsNullOrWhiteSpace(txtVerenigingBeschrijving.Text))
-                //{
-                //    return "Beschrijving is een verplicht in te vullen veld!" + Environment.NewLine;
-                //}
-                //if (columnName == "txtVerenigingStraat" && string.IsNullOrWhiteSpace(txtVerenigingStraat.Text))
-                //{
-                //    return "Straat is een verplicht in te vullen veld!" + Environment.NewLine;
-                //}
-                //if (columnName == "txtVerenigingHuisnr" && string.IsNullOrWhiteSpace(txtVerenigingHuisnr.Text))
-                //{
-                //    return "huisnummer is een verplicht in te vullen veld!" + Environment.NewLine;
-                //}
-                //if (columnName == "txtVerenigingGemeente" && string.IsNullOrWhiteSpace(txtVerenigingGemeente.Text))
-                //{
-                //    return "Straat is een verplicht in te vullen veld!" + Environment.NewLine;
-                //}
-                //if (columnName == "txtVerenigingPostcode" && string.IsNullOrWhiteSpace(txtVerenigingPostcode.Text))
-                //{
-                //    return "postcode is een verplicht in te vullen veld!" + Environment.NewLine;
-                //}
+                if (ColumnName == "naam" && string.IsNullOrWhiteSpace(naam))
+                {
+                    return "Naam is een verplicht veld!";
+                }
+                if (ColumnName == "beschrijving" && string.IsNullOrWhiteSpace(beschrijving))
+                {
+                    return "Beschrijving is een verplicht veld!";
+                }
+                if (ColumnName == "straat" && string.IsNullOrWhiteSpace(straat))
+                {
+                    return "Straat is een verplicht veld!";
+                }
+                if (ColumnName == "id" && id < 0)
+                {
+                    return "Id moet groter dan 0 zijn!";
+                }
+                if (ColumnName == "huisnr" && string.IsNullOrWhiteSpace(huisnr))
+                {
+                    return "Huisnummer is een verplicht veld!";
+                }
+                if (ColumnName == "gemeente" && string.IsNullOrWhiteSpace(gemeente))
+                {
+                    return "Gemeente is een verplicht veld!";
+                }
+                if (ColumnName == "postcode" && string.IsNullOrWhiteSpace(postcode))
+                {
+                    return "Postcode is een verplicht veld!";
+                }
                 return "";
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Vereniging vereniging &&
+                   naam == vereniging.naam;
+        }
+
+        public override int GetHashCode()
+        {
+            return -1562492934 + EqualityComparer<string>.Default.GetHashCode(naam);
+        }
+
     }
 }
