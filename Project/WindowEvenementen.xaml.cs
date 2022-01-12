@@ -70,7 +70,75 @@ namespace Project
 
         private void btnVoegEvenementToe_Click(object sender, RoutedEventArgs e)
         {
+            //string foutmelding = Valideer("txtTitel");
+            //foutmelding += Valideer("txtStraat");
+            //foutmelding += Valideer("txtHuisnummer");
+            //foutmelding += Valideer("txtGemeente");
+            //foutmelding += Valideer("txtPrijs");
+            //foutmelding += Valideer("txtPostcode");
 
+            //if (string.IsNullOrWhiteSpace(foutmelding))
+            //{
+            //    Event ev = new Event();
+            //    ev.titel = txtTitel.Text;
+            //    ev.straat = txtStraat.Text;
+            //    ev.huisnr = txtHuisnummer.Text;
+            //    ev.gemeente = txtGemeente.Text;
+            //    ev.prijs = int.Parse(txtPrijs.Text);
+            //    ev.postcode = txtPostcode.Text;
+
+            //    if (ev.)
+            //    {
+            //        int ok = DatabaseOperations.ToevoegenWerknemer(employee);
+            //        if (ok > 0)
+            //        {
+            //            datagridWerknemers.ItemsSource = DatabaseOperations.OphalenWerknemersViaUitgeverID(publisher.pub_id);
+            //            Wissen();
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Werknemer is niet toegevoegd!");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show(employee.Error);
+            //    }
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show(foutmelding);
+            //}
         }
+
+        //private string Valideer(string columnName)
+        //{
+        //    if (columnName == "txtTitel" && string.IsNullOrWhiteSpace(txtTitel.Text))
+        //    {
+        //        return "Verenigings naam is een verplicht in te vullen veld!" + Environment.NewLine;
+        //    }
+        //    if (columnName == "txtStraat" && string.IsNullOrWhiteSpace(txtStraat.Text))
+        //    {
+        //        return "Beschrijving is een verplicht in te vullen veld!" + Environment.NewLine;
+        //    }
+        //    if (columnName == "txtHuisnummer" && string.IsNullOrWhiteSpace(txtHuisnummer.Text))
+        //    {
+        //        return "Straat is een verplicht in te vullen veld!" + Environment.NewLine;
+        //    }
+        //    if (columnName == "txtGemeente" && string.IsNullOrWhiteSpace(txtGemeente.Text))
+        //    {
+        //        return "huisnummer is een verplicht in te vullen veld!" + Environment.NewLine;
+        //    }
+        //    if (columnName == "txtPrijs" && string.IsNullOrWhiteSpace(txtPrijs.Text))
+        //    {
+        //        return "Straat is een verplicht in te vullen veld!" + Environment.NewLine;
+        //    }
+        //    if (columnName == "txtPostcode" && string.IsNullOrWhiteSpace(txtPostcode.Text))
+        //    {
+        //        return "postcode is een verplicht in te vullen veld!" + Environment.NewLine;
+        //    }
+        //    return "";
+        //}
     }
 }

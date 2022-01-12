@@ -90,6 +90,7 @@
     <Compile Include="GebruikerVereniging.cs">
       <DependentUpon>Verenigingen1.tt</DependentUpon>
     </Compile>
+    <Compile Include="partial\Event.cs" />
     <Compile Include="partial\Vereniging.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vereniging.cs">

@@ -144,14 +144,14 @@ namespace Project_DAL
             }
         }
 
-        public static Vereniging OphaleVerenigingViaId(int verenigingId)
+        public static List<Vereniging> OphaleVerenigingViaId(int verenigingId)
         {
             using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 var query = entities.Vereniging
                     .Where(x => x.id == verenigingId)
                     .OrderBy(x => x.naam);
-                    return query.SingleOrDefault();
+                    return query.ToList();
             }
         }
         #endregion

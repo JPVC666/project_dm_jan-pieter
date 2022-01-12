@@ -35,6 +35,6 @@
             <Button x:Name="btnDataBewerkEvenementen" Content="Bewerk Evenementen" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="5" Click="btnDataBewerkEvenementen_Click"/>
             <Button x:Name="btnDataBewerkGebruikers" Content="Bewerk Gebruikers" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Click="btnDataBewerkGebruikers_Click"/>
         </Grid>
-        <DataGrid x:Name="datagridVerenigingen" AutoGenerateColumns="True" Margin="5"/>
+        <DataGrid x:Name="datagridVerenigingen" AutoGenerateColumns="true" Margin="5"/>
     </DockPanel>
 </Window>

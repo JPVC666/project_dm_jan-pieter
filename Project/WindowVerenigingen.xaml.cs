@@ -46,16 +46,8 @@ namespace Project
             {
                 if (int.TryParse(txtVerenigingId.Text, out int verenigingId))
                 {
-                    Vereniging vereniging = DatabaseOperations.OphaleVerenigingViaId(verenigingId);
-
-                    if (vereniging == null)
-                    {
-                        MessageBox.Show("Vereniging niet gevonden");
-                    }
-                    else
-                    {
-                        MessageBox.Show(vereniging.naam);
-                    }
+                    List<Vereniging> vereniging = DatabaseOperations.OphaleVerenigingViaId(verenigingId);
+                    datagridVerenigingen1.ItemsSource = vereniging;
                 }
                 else
                 {
