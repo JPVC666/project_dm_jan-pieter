@@ -47,8 +47,12 @@ namespace Project_DAL
                 return query.ToList();
             }
         }
+        #endregion
 
-       public static int ToevoegenVereniging(Vereniging v)
+        #region Add/Delete
+
+        #region Vereniging
+        public static int ToevoegenVereniging(Vereniging v)
         {
             try
             {
@@ -58,7 +62,7 @@ namespace Project_DAL
                     return entities.SaveChanges();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 FileOperations.FoutLoggen(ex);
                 return 0;
@@ -81,6 +85,79 @@ namespace Project_DAL
                 return 0;
             }
         }
+        #endregion
+
+        #region Event
+        public static int ToevoegenEvent(Event ev)
+        {
+            try
+            {
+                using (Verenigingen1Entities entities = new Verenigingen1Entities())
+                {
+                    entities.Event.Add(ev);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
+        public static int VerwijderEvent(Event ev)
+        {
+            try
+            {
+                using (Verenigingen1Entities entities = new Verenigingen1Entities())
+                {
+                    entities.Entry(ev).State = EntityState.Deleted;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+        #endregion
+
+        #region Gebruiker
+        public static int ToevoegenGebruiker(Gebruiker g)
+        {
+            try
+            {
+                using (Verenigingen1Entities entities = new Verenigingen1Entities())
+                {
+                    entities.Gebruiker.Add(g);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
+        public static int VerwijderGebruiker(Gebruiker g)
+        {
+            try
+            {
+                using (Verenigingen1Entities entities = new Verenigingen1Entities())
+                {
+                    entities.Entry(g).State = EntityState.Deleted;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+        #endregion
         #endregion
 
         #region event

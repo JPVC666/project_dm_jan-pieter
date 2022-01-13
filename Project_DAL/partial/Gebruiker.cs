@@ -13,6 +13,10 @@ namespace Project_DAL
         {
             get
             {
+                if (ColumnName == "id" && id < 0)
+                {
+                    return "Id moet groter dan 0 zijn!";
+                }
                 if (ColumnName == "email" && string.IsNullOrWhiteSpace(email))
                 {
                     return "E-mail is een verplicht veld!";

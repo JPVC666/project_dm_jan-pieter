@@ -19,6 +19,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -32,6 +33,8 @@
             <TextBox x:Name="txtEmail" Grid.Row="1" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Email"/>
             <TextBox x:Name="txtPaswoord" Grid.Row="1" Grid.Column="1" Margin="5" materialDesign:HintAssist.Hint="Paswoord"/>
             <Button x:Name="btnVoegGebruikerToe" Content="Gebruiker toevoegen" Grid.Row="1" Grid.Column="2" Margin="5" Click="btnVoegGebruikerToe_Click"/>
+            <TextBox x:Name="txtId" Grid.Row="2" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Id"/>
+            <Button x:Name="btnVerwijderGebruiker" Content="Gebruiker Verwijderen" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Click="btnVerwijderGebruiker_Click"/>
         </Grid>
         <DataGrid x:Name="datagridGebruiker" AutoGenerateColumns="True" Margin="5"/>
     </DockPanel>

@@ -85,7 +85,7 @@ namespace Project
             }
             if (columnName == "txtVerenigingHuisnr" && string.IsNullOrWhiteSpace(txtVerenigingHuisnr.Text))
             {
-                return "huisnummer is een verplicht in te vullen veld!" + Environment.NewLine;
+                return "Huisnummer is een verplicht in te vullen veld!" + Environment.NewLine;
             }
             if (columnName == "txtVerenigingGemeente" && string.IsNullOrWhiteSpace(txtVerenigingGemeente.Text))
             {
@@ -93,7 +93,7 @@ namespace Project
             }
             if (columnName == "txtVerenigingPostcode" && string.IsNullOrWhiteSpace(txtVerenigingPostcode.Text))
             {
-                return "postcode is een verplicht in te vullen veld!" + Environment.NewLine;
+                return "Postcode is een verplicht in te vullen veld!" + Environment.NewLine;
             }
             if (columnName == "datagridVerenigingen1" && datagridVerenigingen1.SelectedItem == null)
             {
@@ -128,7 +128,7 @@ namespace Project
                     int ok = DatabaseOperations.ToevoegenVereniging(v);
                     if (ok <= 0)
                     {
-                        MessageBox.Show("Toevoegen van vereniging is niet gelukt");
+                        MessageBox.Show("Toevoegen van een vereniging is niet gelukt");
                     }
                     else
                     {
@@ -158,7 +158,7 @@ namespace Project
                     int ok = DatabaseOperations.VerwijderVereniging(v);
                     if (ok <= 0)
                     {
-                        MessageBox.Show("Verwijderen van vereniging is niet gelukt");
+                        MessageBox.Show("Verwijderen van een vereniging is niet gelukt");
                     }
                     else
                     {

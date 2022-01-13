@@ -48,7 +48,7 @@
             <TextBox x:Name="txtVerenigingPostcode" Grid.Row="3" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Postcode"/>
 
             <Button x:Name="btnVoegVerenigingToe" Content="Vereniging toevoegen" Grid.Row="3" Grid.Column="3" Margin="5" Click="btnVoegVerenigingToe_Click"/>
-            <Button x:Name="btnVerwijderVereniging" Content="Vereniging Veerwijderen" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" Click="btnVerwijderVereniging_Click"/>
+            <Button x:Name="btnVerwijderVereniging" Content="Vereniging Verwijderen" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" Click="btnVerwijderVereniging_Click"/>
         </Grid>
         <DataGrid x:Name="datagridVerenigingen1" AutoGenerateColumns="True" Margin="5"/>
     </DockPanel>

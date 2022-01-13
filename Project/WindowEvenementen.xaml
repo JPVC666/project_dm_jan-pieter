@@ -21,6 +21,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -40,11 +41,13 @@
             <TextBox x:Name="txtTitel" Grid.Row="2" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Titel"/>
             <TextBox x:Name="txtStraat" Grid.Row="2" Grid.Column="1" Margin="5" materialDesign:HintAssist.Hint="Straat"/>
             <TextBox x:Name="txtHuisnummer" Grid.Row="2" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Huisnummer"/>
+            <TextBox x:Name="txtId" Grid.Row="2" Grid.Column="3" Margin="5" materialDesign:HintAssist.Hint="Id"/>
             <TextBox x:Name="txtGemeente" Grid.Row="3" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Gemeente"/>
             <TextBox x:Name="txtPrijs" Grid.Row="3" Grid.Column="1" Margin="5" materialDesign:HintAssist.Hint="Prijs"/>
             <TextBox x:Name="txtPostcode" Grid.Row="3" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Postcode"/>
 
-            <Button x:Name="btnVoegEvenementToe" Content="Evenement toevoegen" Grid.Row="2" Grid.Column="3" Grid.RowSpan="2" Margin="5" Click="btnVoegEvenementToe_Click"/>
+            <Button x:Name="btnVoegEvenementToe" Content="Evenement toevoegen" Grid.Row="3" Grid.Column="3"  Margin="5" Click="btnVoegEvenementToe_Click"/>
+            <Button x:Name="btnVerwijderEvenement" Content="Evenement Verwijderen" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Margin="5" Click="btnVerwijderEvenement_Click"/>
         </Grid>
         <DataGrid x:Name="datagridEvenementen" AutoGenerateColumns="True" Margin="5"/>
     </DockPanel>
