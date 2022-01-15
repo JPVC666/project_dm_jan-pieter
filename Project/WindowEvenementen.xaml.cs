@@ -86,7 +86,7 @@ namespace Project
             {
                 return "Gemeente is een verplicht in te vullen veld!" + Environment.NewLine;
             }
-            if (columnName == "txtbeschrijving" && string.IsNullOrWhiteSpace(txtBeschrijving.Text))
+            if (columnName == "txtBeschrijving" && string.IsNullOrWhiteSpace(txtBeschrijving.Text))
             {
                 return "beschrijving is een verplicht in te vullen veld!" + Environment.NewLine;
             }

@@ -87,13 +87,13 @@ namespace Project_DAL
         #endregion
 
         #region Event
-        public static int ToevoegenEvent(Event ev)
+        public static int ToevoegenEvent(Event feest)
         {
             try
             {
                 using (Verenigingen1Entities entities = new Verenigingen1Entities())
                 {
-                    entities.Event.Add(ev);
+                    entities.Event.Add(feest);
                     return entities.SaveChanges();
                 }
             }
@@ -104,13 +104,13 @@ namespace Project_DAL
             }
         }
 
-        public static int VerwijderEvent(Event ev)
+        public static int VerwijderEvent(Event feest)
         {
             try
             {
                 using (Verenigingen1Entities entities = new Verenigingen1Entities())
                 {
-                    entities.Entry(ev).State = EntityState.Deleted;
+                    entities.Entry(feest).State = EntityState.Deleted;
                     return entities.SaveChanges();
                 }
             }
