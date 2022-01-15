@@ -70,7 +70,7 @@ namespace Project
             foutmelding += Valideer("txtStraat");
             foutmelding += Valideer("txtGemeente");
             foutmelding += Valideer("txtId");
-            foutmelding += Valideer("txtPrijs");
+            foutmelding += Valideer("txtBeschrijving");
             foutmelding += Valideer("txtPostcode");
             foutmelding += Valideer("txtHuisnummer");
 
@@ -81,7 +81,7 @@ namespace Project
                 ev.straat = txtStraat.Text;
                 ev.gemeente = txtGemeente.Text;
                 ev.id = int.Parse(txtId.Text);
-                ev.prijs = int.Parse(txtPrijs.Text);
+                ev.beschrijving = txtBeschrijving.Text;
                 ev.postcode = txtPostcode.Text;
                 ev.huisnr = txtHuisnummer.Text;
 
@@ -156,9 +156,9 @@ namespace Project
             {
                 return "Gemeente is een verplicht in te vullen veld!" + Environment.NewLine;
             }
-            if (columnName == "txtPrijs" && !int.TryParse(txtPrijs.Text, out int prijs))
+            if (columnName == "txtbeschrijving" && string.IsNullOrWhiteSpace(txtBeschrijving.Text))
             {
-                return "Prijs is een verplicht in te vullen veld!" + Environment.NewLine;
+                return "beschrijving is een verplicht in te vullen veld!" + Environment.NewLine;
             }
             if (columnName == "txtPostcode" && string.IsNullOrWhiteSpace(txtPostcode.Text))
             {
@@ -177,7 +177,7 @@ namespace Project
             txtStraat.Text = "";
             txtGemeente.Text = "";
             txtId.Text = "";
-            txtPrijs.Text = "";
+            txtBeschrijving.Text = "";
             txtPostcode.Text = "";
             txtHuisnummer.Text = "";
             txtZoekOpTitel.Text = "";

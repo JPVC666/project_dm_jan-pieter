@@ -43,7 +43,7 @@
             <TextBox x:Name="txtHuisnummer" Grid.Row="2" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Huisnummer"/>
             <TextBox x:Name="txtId" Grid.Row="2" Grid.Column="3" Margin="5" materialDesign:HintAssist.Hint="Id"/>
             <TextBox x:Name="txtGemeente" Grid.Row="3" Grid.Column="0" Margin="5" materialDesign:HintAssist.Hint="Gemeente"/>
-            <TextBox x:Name="txtPrijs" Grid.Row="3" Grid.Column="1" Margin="5" materialDesign:HintAssist.Hint="Prijs"/>
+            <TextBox x:Name="txtBeschrijving" Grid.Row="3" Grid.Column="1" Margin="5" materialDesign:HintAssist.Hint="Beschrijving"/>
             <TextBox x:Name="txtPostcode" Grid.Row="3" Grid.Column="2" Margin="5" materialDesign:HintAssist.Hint="Postcode"/>
 
             <Button x:Name="btnVoegEvenementToe" Content="Evenement toevoegen" Grid.Row="3" Grid.Column="3"  Margin="5" Click="btnVoegEvenementToe_Click"/>

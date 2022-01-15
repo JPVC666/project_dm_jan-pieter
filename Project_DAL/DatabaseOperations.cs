@@ -16,7 +16,6 @@ namespace Project_DAL
             using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 var query = entities.Vereniging;
-                    //.Include("VerenigingContactpersoon");
                 return query.ToList();                                                              
             }
         }
@@ -160,7 +159,7 @@ namespace Project_DAL
         #endregion
         #endregion
 
-        #region event
+        #region Event
         public static List<Event> OphaleEventsViaTitels(string naam)
         {
             using (Verenigingen1Entities entities = new Verenigingen1Entities())
@@ -178,9 +177,9 @@ namespace Project_DAL
             {
                 return entities.Event
                     .Where(x => x.straat.Contains(straat))
-                    .OrderBy(x => x.titel)
-                    .ToList();
-                    
+                    .OrderBy(x => x.straat)
+                    .ThenBy(x => x.titel)
+                    .ToList();                    
             }
         }
 
@@ -189,7 +188,8 @@ namespace Project_DAL
             using (Verenigingen1Entities entities = new Verenigingen1Entities())
             {
                 var query = entities.Event
-                    .Where(x => x.prijs == Prijs);                    
+                    .Where(x => x.prijs == Prijs)
+                    .OrderBy(x => x.prijs);
                 return query.ToList();
             }
         }
@@ -202,9 +202,6 @@ namespace Project_DAL
                     .Where(x => x.postcode.Contains(Postcode))
                     .OrderBy(x => x.postcode)
                     .ToList();
-                /*var query = entities.Event
-                    .Where(x => x.postcode == Postcode);
-                return query.SingleOrDefault();*/
             }
         }
         #endregion
